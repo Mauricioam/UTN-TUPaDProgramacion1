@@ -125,6 +125,8 @@ while not valid_game:
                 print("Error: Ese lugar ya esta ocupado")
         else:
             print("Error: Elegir números 1,2 o 3")
+
+    # No puedo modularizar en funciones entonces tengo q repetir los bloques para validar el juego
     # condicion para terminar juego: filas
     if(board[0][0] == board[0][1] == board[0][2] and board[0][0] != "-"):
         if(board[0][0] == "X"):
