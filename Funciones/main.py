@@ -1,7 +1,7 @@
-import hola_mundo as fn
-import saludar_usuario as fn
+import hola_mundo_1 as fn
+import saludar_usuario_2 as fn
 import aux_funcion as auxfun
-import info_personal as fn
+import info_personal_3 as fn
 # Ejercicio 1: imprimir hola mundoS
 
 fn.imprimir_hola_mundo()

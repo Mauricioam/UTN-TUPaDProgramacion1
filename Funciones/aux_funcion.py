@@ -7,13 +7,21 @@ def check_data(text_input):
 
 def check_num_data(num_input):
         #funcion para corroborar entradas númericas
-        if(len(num_input) and num_input.isdigit()):
+        if len(num_input) and num_input.isdigit():
+            return True
+        # en caso el numero sea float:
+        elif num_input.count(".") and (num_input.replace(".","")).isdigit():
             return True
         else:
             print("Error: El dato ingresado no es correcto")
 
+check_num_data("2.2")
+
 def pedir_datos():
-    
+    # función para ejercicio 3 donde pido cada dato del 
+    # usuario. Se usan muchos whiles individuales para evitar
+    # validar todo de una vez ya que en caso de error se debería empezar todo el ciclo de nuevo.
+
     valid_data = False
     while(not valid_data):
         print("Ingrese su nombre:")
@@ -44,3 +52,4 @@ def pedir_datos():
             valid_data = True
 
     return user_name,user_lastname,user_residence,user_age
+
