@@ -3,7 +3,8 @@ def check_data(text_input):
         if(len(text_input) and text_input.isalpha()):
             return True
         else:
-            print("Error: El dato ingresado no es correcto")
+        
+            return False
 
 def check_num_data(num_input):
         #funcion para corroborar entradas númericas
@@ -13,7 +14,8 @@ def check_num_data(num_input):
         elif num_input.count(".") and (num_input.replace(".","")).isdigit():
             return True
         else:
-            print("Error: El dato ingresado no es correcto")
+            
+            return False
 
 check_num_data("2.2")
 
@@ -29,13 +31,16 @@ def pedir_datos():
         
         if(check_data(user_name)):
             valid_data = True
+        else:
+            print("Error: Debe ingresar solo texto. No números")
     valid_data = False
     while(not valid_data):
         print("Ingresa tu apellido")
         user_lastname = input()
         if(check_data(user_lastname)):
             valid_data = True
-
+        else:
+            print("Error: Debe ingresar solo texto. No números")
     valid_data = False
     while( not valid_data):
         print("Ingresa tu lugar de residencia")
@@ -43,13 +48,15 @@ def pedir_datos():
 
         if(check_data(user_residence)):
             valid_data = True
-
+        else:
+            print("Error: Debe ingresar solo texto. No números")
     valid_data = False
     while(not valid_data):
         print("Cuantos años tienes ")
         user_age = input()
         if(check_num_data(user_age)):
             valid_data = True
-
+        else:
+            print("Error: Debe ingresar un número valido.")
     return user_name,user_lastname,user_residence,user_age
 
