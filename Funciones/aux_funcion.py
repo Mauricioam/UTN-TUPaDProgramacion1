@@ -1,14 +1,14 @@
 def check_data(text_input):
     # función para corroborar input correcto del usuario.
-        if(len(text_input) and text_input.isalpha()):
+        if text_input.isalpha():
             return True
         else:
         
             return False
 
-def check_num_data(num_input):
+def check_text_num_data(num_input):
         #funcion para corroborar entradas númericas
-        if len(num_input) and num_input.isdigit():
+        if num_input.isdigit():
             return True
         # en caso el numero sea float:
         elif num_input.count(".") and (num_input.replace(".","")).isdigit():
@@ -16,8 +16,6 @@ def check_num_data(num_input):
         else:
             
             return False
-
-check_num_data("2.2")
 
 def pedir_datos():
     # función para ejercicio 3 donde pido cada dato del 
@@ -54,7 +52,7 @@ def pedir_datos():
     while(not valid_data):
         print("Cuantos años tienes ")
         user_age = input()
-        if(check_num_data(user_age)):
+        if(check_text_num_data(user_age)):
             valid_data = True
         else:
             print("Error: Debe ingresar un número valido.")
