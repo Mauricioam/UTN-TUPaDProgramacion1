@@ -3,6 +3,7 @@ import saludar_usuario_2 as fn2
 import aux_funcion as auxfun
 import info_personal_3 as fn3
 import area_circulo_4 as fn4
+import segundos_horas5 as fn5
 # Ejercicio 1: imprimir hola mundoS
 
 fn1.imprimir_hola_mundo()
@@ -23,3 +24,9 @@ radio = fn4.request_radio()
 fn4.calcular_perimetro_circulo(radio)
 
 fn4.calcular_area_circulo(radio)
+
+#Ejercicio 5: segundos a horas
+
+segundos = fn5.user_input_seconds()
+
+fn5.segundos_a_horas(segundos)

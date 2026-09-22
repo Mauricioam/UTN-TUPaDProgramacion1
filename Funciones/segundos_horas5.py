@@ -14,4 +14,10 @@ def user_input_seconds():
             print("Error: el número ingresado no es válido. Debe ser positivo sin comas.")
     return user_input
 
-seg = user_input_seconds()
+
+
+def segundos_a_horas(seconds):
+    # toma los segundos y los pasa a las horas que corresponde.
+    # no retorna nada, solo muestra el dato
+    num = seconds/3600
+    print(f"Los {seconds} segundos, corresponden a {num:.2f} hora/s")
