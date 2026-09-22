@@ -5,6 +5,10 @@ import info_personal_3 as fn3
 import area_circulo_4 as fn4
 import segundos_horas5 as fn5
 import tabla_multiplicar6 as fn6
+import operaciones_basicas7 as fn7
+import calcular_imc8 as fn8
+
+
 # Ejercicio 1: imprimir hola mundoS
 
 fn1.imprimir_hola_mundo()
@@ -38,3 +42,12 @@ num_multiplicar = fn6.num_input()
 
 fn6.tabla_multiplicar(num_multiplicar)
 
+# Ejercicio 7: operaciones básicas sin ingreso de usuario
+
+fn7.operaciones_basicas(4,5)
+
+# Ejercicio 8: calculadora de imc con función que solicita datos al usuario
+
+peso,altura = fn8.imc_input()
+
+fn8.calcular_imc(peso,altura)
