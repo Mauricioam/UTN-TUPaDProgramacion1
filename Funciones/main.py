@@ -4,6 +4,7 @@ import aux_funcion as auxfun
 import info_personal_3 as fn3
 import area_circulo_4 as fn4
 import segundos_horas5 as fn5
+import tabla_multiplicar6 as fn6
 # Ejercicio 1: imprimir hola mundoS
 
 fn1.imprimir_hola_mundo()
@@ -30,3 +31,10 @@ fn4.calcular_area_circulo(radio)
 segundos = fn5.user_input_seconds()
 
 fn5.segundos_a_horas(segundos)
+
+# Ejercicio 6: tabla de multiplicar. El usuario lo debe ingresar
+
+num_multiplicar = fn6.num_input()
+
+fn6.tabla_multiplicar(num_multiplicar)
+

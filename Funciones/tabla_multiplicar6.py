@@ -1,5 +1,7 @@
 import aux_funcion as auxfn
 def num_input():
+    # función para solicitar al usuario y validar su entrada.
+    # no acepta num negativos.
     valid_data = False
     while not valid_data:
         print("Ingresa un número positivo")
