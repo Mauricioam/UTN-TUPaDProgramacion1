@@ -98,4 +98,4 @@ original_paises = {
     "Argentina" : "Buenos Aires"
 }
 
-print(fn_invertir_diccionario(original_paises))
+print(fn_invertir_diccionario.invertir_diccionario(original_paises))
