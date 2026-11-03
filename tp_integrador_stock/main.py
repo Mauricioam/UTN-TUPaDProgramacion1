@@ -44,7 +44,15 @@ def cargar_herramientas(inventario):
 
                 if not nombre.isalpha():
                     raise ValueError("El nombre debe contener solo letras sin números")
-                
+
+                # validar si nombre existe. Sacar afuera a una función
+                nombre = nombre.lower()
+                if len(inventario) > 0:
+                    for itm in range(len(inventario)):
+                    
+                        if inventario[itm]["herramienta"] == nombre:
+                            raise ValueError("El nombre igresado esta duplicado")
+
                 break
 
             except ValueError as error:
@@ -70,6 +78,5 @@ def cargar_herramientas(inventario):
         # si no se ha capturado ningun error, se agrega la herramienta.
         inventario.append({"herramienta": nombre, "cantidad": cargar_cantidad})
     
-
 
 main()
