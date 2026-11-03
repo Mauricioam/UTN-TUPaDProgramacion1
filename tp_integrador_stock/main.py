@@ -1,6 +1,6 @@
 def main():
     inventario = []
-    pass
+    cargar_herramientas(inventario)
 
 def cargar_herramientas(inventario):
     print("==== CARGA DE STOCK INICIAL ====")
@@ -37,7 +37,27 @@ def cargar_herramientas(inventario):
 
             except ValueError as error:
                 print(f"Error: {error} Intenta nuevamente \n")
-        
+
+        while True:
+            try:
+                cargar_cantidad = input(f"Ingrese la cantidad para {nombre}: ")
+
+                if not len(cargar_cantidad):
+                    raise ValueError("Debe ingresar número.")
+
+                if not cargar_cantidad.isdecimal():
+                    raise ValueError("Debe ingresar un número decimal entero")
+
+                cargar_cantidad = int(cargar_cantidad)
+
+                if not cargar_cantidad >= 0:
+                    raise ValueError("Debe ingresar número mayor o igual que cero")
+
+                break
+
+            except ValueError as e:
+                print(f"Error: {error} Intenta nuevamente \n")
+        inventario[n] = {"herramienta": nombre, "cantidad": cargar_cantidad}
     
 
 
