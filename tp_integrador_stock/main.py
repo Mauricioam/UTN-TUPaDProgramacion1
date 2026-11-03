@@ -6,17 +6,27 @@ def cargar_herramientas(inventario):
     print("==== CARGA DE STOCK INICIAL ====")
     print("="*24)
     carga_inicial = input("Ingrese la cantidad de herramientas distintas a cargar: (número entero)")
+    # bloque de validación de la carga inicial de las herramientas a cargar.
+    # cada validación tiene un raise para capturar error.
     while True:
+        # se evalua:
+        # string vacio
+        # validar tipo de dato que necesitamos
+        # validación extra: (mayor q 0)
         try:
             if not len(carga_inicial):
+                raise ValueError("No puede estar vacio")
+
+            if not carga_inicial.isdecimal():
                 raise ValueError("Debe ingresar un número")
 
-
-            if carga_inicial <= 0:
+            if int(carga_inicial) <= 0:
                 raise ValueError("El número debe ser mayor o igual que 0")
 
             carga_inicial = int(carga_inicial)
+            
             break
+        
         except ValueError as error:
             print(f"Error: {error}. Intenta nuevamente \n")
     
@@ -57,7 +67,8 @@ def cargar_herramientas(inventario):
 
             except ValueError as e:
                 print(f"Error: {error} Intenta nuevamente \n")
-        inventario[n] = {"herramienta": nombre, "cantidad": cargar_cantidad}
+        # si no se ha capturado ningun error, se agrega la herramienta.
+        inventario.append({"herramienta": nombre, "cantidad": cargar_cantidad})
     
 
 
