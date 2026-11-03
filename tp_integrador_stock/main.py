@@ -1,14 +1,15 @@
 def main():
     inventario = []
     cargar_herramientas(inventario)
+    print(inventario)
 
 def cargar_herramientas(inventario):
     print("==== CARGA DE STOCK INICIAL ====")
     print("="*24)
-    carga_inicial = input("Ingrese la cantidad de herramientas distintas a cargar: (número entero)")
     # bloque de validación de la carga inicial de las herramientas a cargar.
     # cada validación tiene un raise para capturar error.
     while True:
+        carga_inicial = input("Ingrese la cantidad de herramientas distintas a cargar: (número entero):  ")
         # se evalua:
         # string vacio
         # validar tipo de dato que necesitamos
@@ -29,11 +30,12 @@ def cargar_herramientas(inventario):
         
         except ValueError as error:
             print(f"Error: {error}. Intenta nuevamente \n")
+            
     
     for n in range(carga_inicial):
         while True:
             try:
-                nombre = input("Ingrese nombre de la herramienta: ")
+                nombre = input(f"Ingrese nombre de la herramienta {n+1}: ")
 
                 if not len(nombre):
                     raise ValueError("Debe ingresar un nombre válido")
@@ -56,19 +58,18 @@ def cargar_herramientas(inventario):
                     raise ValueError("Debe ingresar número.")
 
                 if not cargar_cantidad.isdecimal():
-                    raise ValueError("Debe ingresar un número decimal entero")
+                    raise ValueError("Debe ingresar un número decimal entero positivo")
 
                 cargar_cantidad = int(cargar_cantidad)
 
-                if not cargar_cantidad >= 0:
-                    raise ValueError("Debe ingresar número mayor o igual que cero")
 
                 break
 
-            except ValueError as e:
+            except ValueError as error:
                 print(f"Error: {error} Intenta nuevamente \n")
         # si no se ha capturado ningun error, se agrega la herramienta.
         inventario.append({"herramienta": nombre, "cantidad": cargar_cantidad})
     
 
 
+main()
