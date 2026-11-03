@@ -11,6 +11,7 @@ def cargar_herramientas(inventario):
             if not len(carga_inicial):
                 raise ValueError("Debe ingresar un número")
 
+
             if carga_inicial <= 0:
                 raise ValueError("El número debe ser mayor o igual que 0")
 
@@ -19,6 +20,24 @@ def cargar_herramientas(inventario):
         except ValueError as error:
             print(f"Error: {error}. Intenta nuevamente \n")
     
+    for n in range(carga_inicial):
+        while True:
+            try:
+                nombre = input("Ingrese nombre de la herramienta: ")
+
+                if not len(nombre):
+                    raise ValueError("Debe ingresar un nombre válido")
+
+                nombre = nombre.strip()
+
+                if not nombre.isalpha():
+                    raise ValueError("El nombre debe contener solo letras sin números")
+                
+                break
+
+            except ValueError as error:
+                print(f"Error: {error} Intenta nuevamente \n")
+        
     
 
 
