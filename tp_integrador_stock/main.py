@@ -13,10 +13,10 @@ def main():
         print("7. Salir")
         try:
             opcion_usuario = input("Ingrese una opción del menu: ")
-
+            # estructura de selección de opciones 
             match opcion_usuario:
                 case "1":
-                    pass
+                    fn_cargar_herramientas(inventario)
                 case "2":
                     pass
                 case "3":
@@ -31,7 +31,7 @@ def main():
                     pass
                 case _:
                     pass
-            # fn_cargar_herramientas(inventario)
+            fn_cargar_herramientas(inventario)
             visualizar_inventario(inventario)
         except ValueError as error:
             print(f"Error: {error}. intente nuevamente \n")
@@ -46,9 +46,11 @@ def visualizar_inventario(inventario):
         for item in range(len(inventario)):
             nombre_herramienta = inventario[item]["herramienta"]
             cantidad_herramienta = inventario[item]["cantidad"]
-            print(f"Herramienta: {nombre_herramienta} = {cantidad_herramienta}\n")
+            print(f"{nombre_herramienta} = {cantidad_herramienta}\n")
 
     except ValueError as error:
         print(print(f"Error: {error}\n"))   
 
-main()
+stock_prueba = [{'herramienta': 'Martillo', 'cantidad': 3}, {'herramienta': 'Pala', 'cantidad': 2}]
+
+visualizar_inventario(stock_prueba)
