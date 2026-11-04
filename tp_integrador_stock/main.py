@@ -68,7 +68,14 @@ def consulta_stock(inventario):
         raise ValueError("El nombre no debe contener números. Solo letras.")
 
     for itm in range(len(inventario)):
-        if inventario[itm]["herramienta"] == consulta_herramienta.lower():
+        if inventario[itm]["herramienta"].lower() == consulta_herramienta.lower():
             print(f"{inventario[itm]["herramienta"]} = {inventario[itm]["cantidad"]}")
-        else:
-            print(f"{consulta_herramienta}: no esta en el catálogo. ")
+            break
+        else:    
+            print(f"El artículo {consulta_herramienta} no esta disponible.")
+            break
+
+
+    
+
+consulta_stock(stock_prueba)
