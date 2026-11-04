@@ -30,7 +30,8 @@ def main():
                 case "6":
                     pass
                 case "7":
-                    pass
+                    print("Has elegido salir\n")
+                    break
                 case _:
                     pass
             
