@@ -77,7 +77,7 @@ def alta_nuevo_producto(inventario):
             raise ValueError("El artículo ya esta en el inventario.")
     cantidad_producto = input(f"Ingresa la cantidad para producto {nuevo_nombre}: ")
 
-    if not len(cargcantidad_productoa_inicial):
+    if not len(cantidad_producto):
                 raise ValueError("No puede estar vacio")
 
     if not cantidad_producto.isdecimal():
