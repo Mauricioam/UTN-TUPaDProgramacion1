@@ -39,7 +39,7 @@ def main():
             
             
         except ValueError as error:
-            print(f"Error: {error}. intente nuevamente \n")
+            print(f"Error: {error}. Intente nuevamente \n")
 
 
 
@@ -68,7 +68,30 @@ def venta_ingreso_stock(inventario):
         # vamos a colocar en lower y sacar espacios con strip() ya que todo ingreso esta realizado asi.
         nombre_ingresado = nombre_ingresado.strip().lower()
 
+        # buscamos la herramienta solo si la encuentra avanzamos.
+        for itm in range(len(inventario)):
+            if not nombre_ingresado == inventario[itm]["herramienta"]:
+                raise ValueError("La herramienta ingresada no existe")
+
+        print("==== INGRESE TIPO DE OPERACIÓN ====")
+        print("1: VENTA")
+        print("2: INGRESO\n")
+
+        opcion_usuario = input("Ingrese su selección: ")
+
+        if not len(opcion_usuario):
+            raise ValueError("No ingresó ninguna opción")
+
+        opcion_usuario = int(opcion_usuario)
+
+        if not opcion_usuario == 1 or opcion_usuario == 2:
+            raise ValueError("Opción inválida.")
+
         
+
+        
+
+
 
     except ValueError as err:
         print(f"Error: {err}")
