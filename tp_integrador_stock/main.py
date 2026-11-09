@@ -72,11 +72,14 @@ def venta_ingreso_stock(inventario):
         for itm in range(len(inventario)):
             if not nombre_ingresado == inventario[itm]["herramienta"]:
                 raise ValueError("La herramienta ingresada no existe")
-
+            else:
+                pos_producto = itm
+                break
+        # aqui empezaremos el menu de operaciones
         print("==== INGRESE TIPO DE OPERACIÓN ====")
         print("1: VENTA")
         print("2: INGRESO\n")
-
+        # todas las opciones se validan
         opcion_usuario = input("Ingrese su selección: ")
 
         if not len(opcion_usuario):
@@ -86,6 +89,27 @@ def venta_ingreso_stock(inventario):
 
         if not opcion_usuario == 1 or opcion_usuario == 2:
             raise ValueError("Opción inválida.")
+
+        match opcion_usuario:
+            case 1:
+                if not inventario[pos_producto]["cantidad"] > 0:
+                    raise ValueError("No hay stock suficiente")
+
+                unidades_vendidas = input("Ingrese cantidad de venta: ")
+
+                if not len(unidades_vendidas):
+                    raise ValueError("No ingresó ningún numero")
+
+                unidades_vendidas = int(unidades_vendidas)
+
+                if unidades_vendidas == 0:
+                    raise ValueError("Las unidades vendidas no puede ser 0 o negativos.")
+
+                inventario[pos_producto]["cantidad"] -= unidades_vendidas
+
+                print(f"Registrado venta de {inventario[pos_producto]["herramienta"]} cantidad: {unidades_vendidas}. Stock: {inventario[pos_producto]["cantidad"]}")
+
+
 
         
 
@@ -98,3 +122,6 @@ def venta_ingreso_stock(inventario):
 
 
 
+test_invent = [{'herramienta': 'martillo', 'cantidad': 10}, {'herramienta': 'pala', 'cantidad': 3}]
+
+venta_ingreso_stock(test_invent)

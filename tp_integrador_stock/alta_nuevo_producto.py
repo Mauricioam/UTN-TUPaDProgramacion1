@@ -26,4 +26,4 @@ def alta_nuevo_producto(inventario):
 
     cantidad_producto = int(cantidad_producto)
     
-    inventario.append({"herramienta": nuevo_nombre, "cantidad": cantidad_producto})
+    inventario.append({"herramienta": nuevo_nombre.lower(), "cantidad": cantidad_producto})
