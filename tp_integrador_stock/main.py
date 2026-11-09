@@ -1,6 +1,8 @@
 import cargar_herramientas as fn_cargar_herramientas
 import visualizar_inventario as fn_visualizar_inventario
 import constulta_stock as fn_consulta_stock
+import reporte_agotados as fn_reporte_agotados
+import alta_nuevo_producto as fn_alta_producto
 def main():
     inventario = []
 
@@ -9,9 +11,9 @@ def main():
         print("1. Cargar inventario inicial")
         print("2. Visualizar inventario")
         print("3. Consulta stock")
-        print("4. Opcion 4")
-        print("5. Opción 5")
-        print("6. Opcion 6")
+        print("4. Reporte agotados")
+        print("5. Alta nuevo producto")
+        print("6. Actualización de stock (venta/ingreso)")
         print("7. Salir")
         try:
             opcion_usuario = input("Ingrese una opción del menu: ")
@@ -24,9 +26,9 @@ def main():
                 case "3":
                     fn_consulta_stock(inventario)
                 case "4":
-                    pass
+                    fn_reporte_agotados(inventario)
                 case "5":
-                    pass
+                    fn_alta_producto(inventario)
                 case "6":
                     pass
                 case "7":
@@ -39,26 +41,6 @@ def main():
         except ValueError as error:
             print(f"Error: {error}. intente nuevamente \n")
 
-
-def reporte_agotados(inventario):
-    lista_agotados = []
-    try:
-        if not len(inventario):
-            raise ValueError("El inventario esta vacio")
-
-        for itm in range(len(inventario)):
-            if inventario[itm]["cantidad"] == 0:
-                lista_agotados.append(inventario[itm]["herramienta"])
-
-        if not len(lista_agotados):
-            print("Níngun producto esta agotado actualmente.")
-            return
-        print("===== LISTA DE AGOTADOS ======\n")
-        for art in range(len(lista_agotados)):
-            print(f"{art + 1} : {lista_agotados[art]}")
-
-    except ValueError as err:
-        print(f"Error: {err}")
 
 def alta_nuevo_producto(inventario):
     print("======= ALTA NUEVO PRODUCTO =======")
