@@ -45,3 +45,33 @@ def main():
 
 
 
+def venta_ingreso_stock(inventario):
+    # debe ingresar reposición de mercaderia
+    # debe disminuir stock por venta
+    # no retorna nada. Actualiza lista de argumento inventario
+
+    #verificamos si inventario tiene algo
+    try:
+        if(not len(inventario)):
+            raise ValueError("No se tiene ningun elemento en la lista.")
+
+        print("===== VENTA/INGRESO DE STOCK =====")        
+
+        nombre_ingresado = input("Ingresa nombre de la herramienta: ")
+
+        if not len(nombre_ingresado):
+            raise ValueError("No has ingresado ninún nombre")
+
+        if not nombre_ingresado.isalpha():
+            raise("Solo se puede ingresar nombres con letras.")
+
+        # vamos a colocar en lower y sacar espacios con strip() ya que todo ingreso esta realizado asi.
+        nombre_ingresado = nombre_ingresado.strip().lower()
+
+        
+
+    except ValueError as err:
+        print(f"Error: {err}")
+
+
+
