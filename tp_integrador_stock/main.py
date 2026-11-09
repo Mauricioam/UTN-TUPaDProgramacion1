@@ -68,13 +68,17 @@ def venta_ingreso_stock(inventario):
         # vamos a colocar en lower y sacar espacios con strip() ya que todo ingreso esta realizado asi.
         nombre_ingresado = nombre_ingresado.strip().lower()
 
+
         # buscamos la herramienta solo si la encuentra avanzamos.
+        no_encontrado = True
         for itm in range(len(inventario)):
-            if not nombre_ingresado == inventario[itm]["herramienta"]:
-                raise ValueError("La herramienta ingresada no existe")
-            else:
+            if nombre_ingresado == inventario[itm]["herramienta"]:
                 pos_producto = itm
+                no_encontrado = False
                 break
+        
+        if no_encontrado:  raise ValueError("La herramienta ingresada no existe")
+        
         # aqui empezaremos el menu de operaciones
         print("==== INGRESE TIPO DE OPERACIÓN ====")
         print("1: VENTA")
@@ -87,7 +91,7 @@ def venta_ingreso_stock(inventario):
 
         opcion_usuario = int(opcion_usuario)
 
-        if not opcion_usuario == 1 or opcion_usuario == 2:
+        if not opcion_usuario == 1 and not opcion_usuario == 2:
             raise ValueError("Opción inválida.")
 
         match opcion_usuario:
@@ -105,9 +109,29 @@ def venta_ingreso_stock(inventario):
                 if unidades_vendidas == 0:
                     raise ValueError("Las unidades vendidas no puede ser 0 o negativos.")
 
+                if unidades_vendidas > inventario[pos_producto]["cantidad"]:
+                    raise ValueError(f"Supera el stock de {inventario[pos_producto]["herramienta"]}. Stock: {inventario[pos_producto]["cantidad"]} ")
+
                 inventario[pos_producto]["cantidad"] -= unidades_vendidas
 
                 print(f"Registrado venta de {inventario[pos_producto]["herramienta"]} cantidad: {unidades_vendidas}. Stock: {inventario[pos_producto]["cantidad"]}")
+
+            case 2:
+                unidades_ingreso = input("Ingrese cantidad de ingreso: ")
+
+                if not len(unidades_ingreso):
+                    raise ValueError("No ingresó ningún numero")
+
+                unidades_ingreso = int(unidades_ingreso)
+
+                if not unidades_ingreso > 0:
+                    raise ValueError("Las unidades de ingreso no puede ser 0 o negativos.")
+
+                inventario[pos_producto]["cantidad"] += unidades_ingreso
+
+                print(f"Registrado ingreso stock: item {inventario[pos_producto]["herramienta"]} cantidad ingresada: {unidades_ingreso}. Stock actual: {inventario[pos_producto]["cantidad"]}")
+                    
+
 
 
 
